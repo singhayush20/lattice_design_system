@@ -1,0 +1,19 @@
+name: lattice_design_system
+repository: https://github.com/yourorg/lattice_design_system
+packages:
+  - packages/*
+resolution:
+  workspace:
+    ds_core: ^0.1.0
+command:
+  bootstrap:
+    runPubGetInParallel: false
+    hooks:
+      post: melos exec -c "flutter pub get"
+  clean:
+    hooks:
+      post: |
+        melos exec -c "flutter clean"
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.0.0 <4.0.0"

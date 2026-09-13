@@ -1,0 +1,8 @@
+name: lattice_design_system
+environment:
+  sdk: ">=3.12.2 <4.0.0"
+dev_dependencies:
+  melos: ^8.7.0
+workspace:
+  - packages/ds_core
+melos: 

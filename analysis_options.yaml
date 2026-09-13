@@ -1,0 +1,38 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # Strict typing
+    prefer_final_fields: true
+    prefer_final_locals: true
+    avoid_unnecessary_containers: true
+    avoid_print: false
+
+    # Performance & patterns
+    avoid_function_literals_in_foreach_calls: true
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true
+    prefer_initializing_formals: true
+
+    # Prevent common issues
+    avoid_dynamic_calls: true
+    avoid_type_to_string: true
+    avoid_web_libraries_in_flutter: true
+    no_default_cases: true
+    prefer_is_empty: true
+    prefer_is_not_empty: true
+
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+  errors:
+    # Treat missing required parameters as errors
+    missing_required_param: error
+    # Treat invalid annotation usage as errors
+    invalid_annotation_target: error
+    missing_return: error
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
