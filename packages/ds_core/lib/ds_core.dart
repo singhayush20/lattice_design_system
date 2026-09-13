@@ -23,3 +23,6 @@ export 'src/atoms/inputs/ds_text_field.dart';
 export 'src/atoms/dividers/ds_divider.dart';
 export 'src/molecules/dialogs/ds_modal_dialog.dart';
 export 'src/molecules/bottom_sheets/ds_modal_bottom_sheet.dart';
+export 'src/molecules/ds_shimmer/ds_shimmer.dart';
+export 'src/molecules/ds_image/ds_image.dart';
+export 'src/molecules/lottie/ds_lottie.dart';
