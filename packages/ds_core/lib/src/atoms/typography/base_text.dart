@@ -36,20 +36,20 @@ base class BaseText extends StatelessWidget {
   }
 
   TextStyle _resolveStyle(DsTypeScale typeScale) => switch (variant) {
-        DsTextVariant.displayLarge => typeScale.displayLarge,
-        DsTextVariant.displayMedium => typeScale.displayMedium,
-        DsTextVariant.displaySmall => typeScale.displaySmall,
-        DsTextVariant.headlineLarge => typeScale.headlineLarge,
-        DsTextVariant.headlineMedium => typeScale.headlineMedium,
-        DsTextVariant.headlineSmall => typeScale.headlineSmall,
-        DsTextVariant.titleLarge => typeScale.titleLarge,
-        DsTextVariant.titleMedium => typeScale.titleMedium,
-        DsTextVariant.titleSmall => typeScale.titleSmall,
-        DsTextVariant.bodyLarge => typeScale.bodyLarge,
-        DsTextVariant.bodyMedium => typeScale.bodyMedium,
-        DsTextVariant.bodySmall => typeScale.bodySmall,
-        DsTextVariant.labelLarge => typeScale.labelLarge,
-        DsTextVariant.labelMedium => typeScale.labelMedium,
-        DsTextVariant.labelSmall => typeScale.labelSmall,
-      };
+    DsTextVariant.displayLarge => typeScale.displayLarge,
+    DsTextVariant.displayMedium => typeScale.displayMedium,
+    DsTextVariant.displaySmall => typeScale.displaySmall,
+    DsTextVariant.headlineLarge => typeScale.headlineLarge,
+    DsTextVariant.headlineMedium => typeScale.headlineMedium,
+    DsTextVariant.headlineSmall => typeScale.headlineSmall,
+    DsTextVariant.titleLarge => typeScale.titleLarge,
+    DsTextVariant.titleMedium => typeScale.titleMedium,
+    DsTextVariant.titleSmall => typeScale.titleSmall,
+    DsTextVariant.bodyLarge => typeScale.bodyLarge,
+    DsTextVariant.bodyMedium => typeScale.bodyMedium,
+    DsTextVariant.bodySmall => typeScale.bodySmall,
+    DsTextVariant.labelLarge => typeScale.labelLarge,
+    DsTextVariant.labelMedium => typeScale.labelMedium,
+    DsTextVariant.labelSmall => typeScale.labelSmall,
+  };
 }

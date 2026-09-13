@@ -4,8 +4,10 @@ enum DsRadioListTileVariant { defaultVariant, dense }
 
 sealed class DsRadioListTileTitle {
   const DsRadioListTileTitle();
-  const factory DsRadioListTileTitle.text(String data) = _DsRadioListTileTitleText;
-  const factory DsRadioListTileTitle.widget(Widget child) = _DsRadioListTileTitleWidget;
+  const factory DsRadioListTileTitle.text(String data) =
+      _DsRadioListTileTitleText;
+  const factory DsRadioListTileTitle.widget(Widget child) =
+      _DsRadioListTileTitleWidget;
 }
 
 final class _DsRadioListTileTitleText extends DsRadioListTileTitle {
@@ -20,8 +22,10 @@ final class _DsRadioListTileTitleWidget extends DsRadioListTileTitle {
 
 sealed class DsRadioListTileSubtitle {
   const DsRadioListTileSubtitle();
-  const factory DsRadioListTileSubtitle.text(String data) = _DsRadioListTileSubtitleText;
-  const factory DsRadioListTileSubtitle.widget(Widget child) = _DsRadioListTileSubtitleWidget;
+  const factory DsRadioListTileSubtitle.text(String data) =
+      _DsRadioListTileSubtitleText;
+  const factory DsRadioListTileSubtitle.widget(Widget child) =
+      _DsRadioListTileSubtitleWidget;
 }
 
 final class _DsRadioListTileSubtitleText extends DsRadioListTileSubtitle {
@@ -36,9 +40,12 @@ final class _DsRadioListTileSubtitleWidget extends DsRadioListTileSubtitle {
 
 sealed class DsRadioListTileLeading {
   const DsRadioListTileLeading();
-  const factory DsRadioListTileLeading.icon(IconData data) = _DsRadioListTileLeadingIcon;
-  const factory DsRadioListTileLeading.asset(String path) = _DsRadioListTileLeadingAsset;
-  const factory DsRadioListTileLeading.widget(Widget child) = _DsRadioListTileLeadingWidget;
+  const factory DsRadioListTileLeading.icon(IconData data) =
+      _DsRadioListTileLeadingIcon;
+  const factory DsRadioListTileLeading.asset(String path) =
+      _DsRadioListTileLeadingAsset;
+  const factory DsRadioListTileLeading.widget(Widget child) =
+      _DsRadioListTileLeadingWidget;
 
   Widget build({Color? color, double? size});
 }
@@ -71,8 +78,10 @@ final class _DsRadioListTileLeadingWidget extends DsRadioListTileLeading {
 
 sealed class DsRadioListTileTrailing {
   const DsRadioListTileTrailing();
-  const factory DsRadioListTileTrailing.icon(IconData data) = _DsRadioListTileTrailingIcon;
-  const factory DsRadioListTileTrailing.widget(Widget child) = _DsRadioListTileTrailingWidget;
+  const factory DsRadioListTileTrailing.icon(IconData data) =
+      _DsRadioListTileTrailingIcon;
+  const factory DsRadioListTileTrailing.widget(Widget child) =
+      _DsRadioListTileTrailingWidget;
 
   Widget build({Color? color, double? size});
 }

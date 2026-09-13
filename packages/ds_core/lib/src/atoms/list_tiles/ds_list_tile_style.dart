@@ -9,12 +9,11 @@ sealed class DsListTileTitle {
 
   Widget build(BuildContext context, Color color) {
     return switch (this) {
-      _DsListTileTitleText(:final data) =>
-        DsText.bodyLarge(data, color: color),
+      _DsListTileTitleText(:final data) => DsText.bodyLarge(data, color: color),
       _DsListTileTitleWidget(:final child) => DefaultTextStyle(
-          style: context.dsType.bodyLarge.copyWith(color: color),
-          child: child,
-        ),
+        style: context.dsType.bodyLarge.copyWith(color: color),
+        child: child,
+      ),
     };
   }
 }
@@ -37,12 +36,14 @@ sealed class DsListTileSubtitle {
 
   Widget build(BuildContext context, Color color) {
     return switch (this) {
-      _DsListTileSubtitleText(:final data) =>
-        DsText.bodyMedium(data, color: color),
+      _DsListTileSubtitleText(:final data) => DsText.bodyMedium(
+        data,
+        color: color,
+      ),
       _DsListTileSubtitleWidget(:final child) => DefaultTextStyle(
-          style: context.dsType.bodyMedium.copyWith(color: color),
-          child: child,
-        ),
+        style: context.dsType.bodyMedium.copyWith(color: color),
+        child: child,
+      ),
     };
   }
 }

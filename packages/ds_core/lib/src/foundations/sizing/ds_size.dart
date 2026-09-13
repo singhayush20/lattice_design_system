@@ -2,7 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DsSize {
   DsSize._();
-  
+
   static double get size1 => 1.r;
   static double get size2 => 2.r;
   static double get size4 => 4.r;
@@ -32,7 +32,7 @@ class DsSize {
   static double get size128 => 128.r;
   static double get size144 => 144.r;
   static double get size160 => 160.r;
-  
+
   static double get iconSize14 => 14.r;
   static double get iconSize16 => 16.r;
   static double get iconSize18 => 18.r;

@@ -85,13 +85,24 @@ base class BaseModalBottomSheet extends StatelessWidget {
   };
 
   Widget _buildDescription(BuildContext context) => switch (description) {
-    _DsBottomSheetDescriptionText(:final data) => DsText.bodyMedium(data, color: context.dsColors.textSecondary),
+    _DsBottomSheetDescriptionText(:final data) => DsText.bodyMedium(
+      data,
+      color: context.dsColors.textSecondary,
+    ),
     _DsBottomSheetDescriptionWidget(:final child) => child,
   };
 
   Widget _buildPrimaryIcon(BuildContext context) => switch (primaryIcon!) {
-    _DsBottomSheetIconData(:final data) => Icon(data, size: DsSize.iconSize48, color: context.dsColors.primary),
-    _DsBottomSheetIconAsset(:final path) => ImageIcon(AssetImage(path), size: DsSize.iconSize48, color: context.dsColors.primary),
+    _DsBottomSheetIconData(:final data) => Icon(
+      data,
+      size: DsSize.iconSize48,
+      color: context.dsColors.primary,
+    ),
+    _DsBottomSheetIconAsset(:final path) => ImageIcon(
+      AssetImage(path),
+      size: DsSize.iconSize48,
+      color: context.dsColors.primary,
+    ),
   };
 
   Widget _buildActions(BuildContext context) {
@@ -100,9 +111,21 @@ base class BaseModalBottomSheet extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        if (hasPrimary) DsButton.primary(primaryButtonText!, isFullWidth: true, onTap: onPrimaryButtonPressed),
-        if (hasPrimary && hasSecondary) SizedBox(height: DsSpacing.verticalSpace12),
-        if (hasSecondary) DsButton.secondary(secondaryButtonText!, isFullWidth: true, onTap: onSecondaryButtonPressed ?? () => Navigator.of(context).pop()),
+        if (hasPrimary)
+          DsButton.primary(
+            primaryButtonText!,
+            isFullWidth: true,
+            onTap: onPrimaryButtonPressed,
+          ),
+        if (hasPrimary && hasSecondary)
+          SizedBox(height: DsSpacing.verticalSpace12),
+        if (hasSecondary)
+          DsButton.secondary(
+            secondaryButtonText!,
+            isFullWidth: true,
+            onTap:
+                onSecondaryButtonPressed ?? () => Navigator.of(context).pop(),
+          ),
       ],
     );
   }

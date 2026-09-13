@@ -102,20 +102,16 @@ class _DsTextFieldState extends State<DsTextField> {
     final borderColor = hasError
         ? colors.borderError
         : _isFocused
-            ? colors.borderPrimary
-            : colors.borderDefault;
+        ? colors.borderPrimary
+        : colors.borderDefault;
 
     final fillColor = widget.enabled
         ? colors.backgroundSurface
         : colors.backgroundDisabled;
 
-    final textColor = widget.enabled
-        ? colors.textPrimary
-        : colors.textDisabled;
+    final textColor = widget.enabled ? colors.textPrimary : colors.textDisabled;
 
-    final iconColor = widget.enabled
-        ? colors.iconPrimary
-        : colors.iconDisabled;
+    final iconColor = widget.enabled ? colors.iconPrimary : colors.iconDisabled;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -143,9 +139,7 @@ class _DsTextFieldState extends State<DsTextField> {
             children: [
               if (widget.leadingIcon != null) ...[
                 Padding(
-                  padding: EdgeInsets.only(
-                    left: DsSpacing.horizontalSpace16,
-                  ),
+                  padding: EdgeInsets.only(left: DsSpacing.horizontalSpace16),
                   child: Icon(
                     widget.leadingIcon,
                     color: iconColor,
@@ -223,10 +217,7 @@ class _DsTextFieldState extends State<DsTextField> {
         ),
         if (widget.errorText != null) ...[
           SizedBox(height: DsSpacing.verticalSpace4),
-          DsText.bodySmall(
-            widget.errorText!,
-            color: colors.textError,
-          ),
+          DsText.bodySmall(widget.errorText!, color: colors.textError),
         ],
       ],
     );

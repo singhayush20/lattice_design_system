@@ -31,7 +31,9 @@ base class BaseModalDialog extends StatelessWidget {
     return Dialog(
       backgroundColor: colors.backgroundSurface,
       shape: RoundedRectangleBorder(borderRadius: DsRadius.circular16),
-      insetPadding: EdgeInsets.symmetric(horizontal: DsSpacing.horizontalSpace24),
+      insetPadding: EdgeInsets.symmetric(
+        horizontal: DsSpacing.horizontalSpace24,
+      ),
       child: Padding(
         padding: EdgeInsets.all(DsSpacing.radialSpace24),
         child: Column(
@@ -46,7 +48,8 @@ base class BaseModalDialog extends StatelessWidget {
                 if (!isDismissible)
                   IconButton(
                     icon: Icon(Icons.close, size: DsSize.iconSize24),
-                    onPressed: onClosePressed ?? () => Navigator.of(context).pop(),
+                    onPressed:
+                        onClosePressed ?? () => Navigator.of(context).pop(),
                     padding: EdgeInsets.zero,
                     constraints: const BoxConstraints(),
                   ),
@@ -75,7 +78,10 @@ base class BaseModalDialog extends StatelessWidget {
 
   Widget _buildDescription(BuildContext context) {
     return switch (description) {
-      _DsDialogDescriptionText(:final data) => DsText.bodyMedium(data, color: context.dsColors.textSecondary),
+      _DsDialogDescriptionText(:final data) => DsText.bodyMedium(
+        data,
+        color: context.dsColors.textSecondary,
+      ),
       _DsDialogDescriptionWidget(:final child) => child,
     };
   }
@@ -83,8 +89,16 @@ base class BaseModalDialog extends StatelessWidget {
   Widget _buildPrimaryIcon(BuildContext context) {
     final color = context.dsColors.primary;
     return switch (primaryIcon!) {
-      _DsDialogIconData(:final data) => Icon(data, size: DsSize.iconSize48, color: color),
-      _DsDialogIconAsset(:final path) => ImageIcon(AssetImage(path), size: DsSize.iconSize48, color: color),
+      _DsDialogIconData(:final data) => Icon(
+        data,
+        size: DsSize.iconSize48,
+        color: color,
+      ),
+      _DsDialogIconAsset(:final path) => ImageIcon(
+        AssetImage(path),
+        size: DsSize.iconSize48,
+        color: color,
+      ),
     };
   }
 
@@ -93,18 +107,18 @@ base class BaseModalDialog extends StatelessWidget {
     final hasSecondary = secondaryButtonText != null;
 
     return Row(
-      mainAxisAlignment: hasSecondary ? MainAxisAlignment.spaceBetween : MainAxisAlignment.end,
+      mainAxisAlignment: hasSecondary
+          ? MainAxisAlignment.spaceBetween
+          : MainAxisAlignment.end,
       children: [
         if (hasSecondary)
           DsButton.secondary(
             secondaryButtonText!,
-            onTap: onSecondaryButtonPressed ?? () => Navigator.of(context).pop(),
+            onTap:
+                onSecondaryButtonPressed ?? () => Navigator.of(context).pop(),
           ),
         if (hasPrimary)
-          DsButton.primary(
-            primaryButtonText!,
-            onTap: onPrimaryButtonPressed,
-          ),
+          DsButton.primary(primaryButtonText!, onTap: onPrimaryButtonPressed),
       ],
     );
   }

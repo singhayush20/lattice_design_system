@@ -2,7 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DsSpacing {
   DsSpacing._();
-  
+
   static double get horizontalSpace2 => 2.w;
   static double get horizontalSpace4 => 4.w;
   static double get horizontalSpace6 => 6.w;
@@ -23,7 +23,7 @@ class DsSpacing {
   static double get horizontalSpace56 => 56.w;
   static double get horizontalSpace60 => 60.w;
   static double get horizontalSpace64 => 64.w;
-  
+
   static double get verticalSpace2 => 2.h;
   static double get verticalSpace4 => 4.h;
   static double get verticalSpace6 => 6.h;
@@ -44,7 +44,7 @@ class DsSpacing {
   static double get verticalSpace56 => 56.h;
   static double get verticalSpace60 => 60.h;
   static double get verticalSpace64 => 64.h;
-  
+
   static double get radialSpace2 => 2.r;
   static double get radialSpace4 => 4.r;
   static double get radialSpace6 => 6.r;

@@ -16,7 +16,10 @@ class DsShimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    return Shimmer(color: color ?? context.dsColors.transparent, enabled: enabled, child: child);
+    return Shimmer(
+      color: color ?? context.dsColors.transparent,
+      enabled: enabled,
+      child: child,
+    );
   }
 }

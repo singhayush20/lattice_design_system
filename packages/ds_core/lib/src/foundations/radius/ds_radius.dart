@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DsRadius {
   DsRadius._();
-  
+
   static double get radius2 => 2.r;
   static double get radius4 => 4.r;
   static double get radius6 => 6.r;
@@ -16,7 +16,7 @@ class DsRadius {
   static double get radius28 => 28.r;
   static double get radius32 => 32.r;
   static double get radiusFull => 9999.r;
-  
+
   static BorderRadius get circular2 => BorderRadius.circular(radius2);
   static BorderRadius get circular4 => BorderRadius.circular(radius4);
   static BorderRadius get circular6 => BorderRadius.circular(radius6);

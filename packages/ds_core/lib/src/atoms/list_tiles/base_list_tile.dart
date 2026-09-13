@@ -30,16 +30,13 @@ base class BaseListTile extends StatelessWidget {
         ? colors.backgroundSubtle
         : colors.backgroundSurface;
 
-    final titleColor = isEnabled
-        ? colors.textPrimary
-        : colors.textDisabled;
+    final titleColor = isEnabled ? colors.textPrimary : colors.textDisabled;
 
     final subtitleColor = isEnabled
         ? colors.textSecondary
         : colors.textDisabled;
 
-    final iconColor =
-        isEnabled ? colors.iconPrimary : colors.iconDisabled;
+    final iconColor = isEnabled ? colors.iconPrimary : colors.iconDisabled;
 
     return Material(
       color: backgroundColor,
@@ -61,8 +58,7 @@ base class BaseListTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    if (title != null)
-                      _buildTitle(context, titleColor),
+                    if (title != null) _buildTitle(context, titleColor),
                     if (subtitle != null) ...[
                       SizedBox(height: DsSpacing.verticalSpace4),
                       _buildSubtitle(context, subtitleColor),
@@ -83,23 +79,24 @@ base class BaseListTile extends StatelessWidget {
 
   Widget _buildTitle(BuildContext context, Color color) {
     return switch (title!) {
-      _DsListTileTitleText(:final data) =>
-        DsText.bodyLarge(data, color: color),
+      _DsListTileTitleText(:final data) => DsText.bodyLarge(data, color: color),
       _DsListTileTitleWidget(:final child) => DefaultTextStyle(
-          style: context.dsType.bodyLarge.copyWith(color: color),
-          child: child,
-        ),
+        style: context.dsType.bodyLarge.copyWith(color: color),
+        child: child,
+      ),
     };
   }
 
   Widget _buildSubtitle(BuildContext context, Color color) {
     return switch (subtitle!) {
-      _DsListTileSubtitleText(:final data) =>
-        DsText.bodyMedium(data, color: color),
+      _DsListTileSubtitleText(:final data) => DsText.bodyMedium(
+        data,
+        color: color,
+      ),
       _DsListTileSubtitleWidget(:final child) => DefaultTextStyle(
-          style: context.dsType.bodyMedium.copyWith(color: color),
-          child: child,
-        ),
+        style: context.dsType.bodyMedium.copyWith(color: color),
+        child: child,
+      ),
     };
   }
 }

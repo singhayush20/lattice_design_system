@@ -1,5 +1,3 @@
-
-
 class DsDurations {
   DsDurations._();
   static const Duration instant = Duration(milliseconds: 0);

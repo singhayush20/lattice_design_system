@@ -1,6 +1,7 @@
 part of 'ds_button.dart';
 
 enum DsButtonVariant { primary, secondary, tertiary, destructive }
+
 enum DsButtonSize { small, medium, large }
 
 sealed class DsButtonIcon {
@@ -51,12 +52,15 @@ class _DsButtonStyleResolver {
     };
 
     final EdgeInsetsGeometry padding = switch (size) {
-      DsButtonSize.small =>
-        EdgeInsets.symmetric(horizontal: DsSpacing.horizontalSpace12),
-      DsButtonSize.medium =>
-        EdgeInsets.symmetric(horizontal: DsSpacing.horizontalSpace16),
-      DsButtonSize.large =>
-        EdgeInsets.symmetric(horizontal: DsSpacing.horizontalSpace24),
+      DsButtonSize.small => EdgeInsets.symmetric(
+        horizontal: DsSpacing.horizontalSpace12,
+      ),
+      DsButtonSize.medium => EdgeInsets.symmetric(
+        horizontal: DsSpacing.horizontalSpace16,
+      ),
+      DsButtonSize.large => EdgeInsets.symmetric(
+        horizontal: DsSpacing.horizontalSpace24,
+      ),
     };
 
     final Color foregroundColor;

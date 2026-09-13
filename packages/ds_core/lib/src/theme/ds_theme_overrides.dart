@@ -25,12 +25,7 @@ class DsThemeOverride extends StatelessWidget {
     final newType = typeScale ?? currentType;
 
     return Theme(
-      data: Theme.of(context).copyWith(
-        extensions: [
-          newColors,
-          newType,
-        ],
-      ),
+      data: Theme.of(context).copyWith(extensions: [newColors, newType]),
       child: child,
     );
   }

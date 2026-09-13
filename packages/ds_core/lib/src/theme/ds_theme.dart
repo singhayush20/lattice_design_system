@@ -6,20 +6,14 @@ class DsTheme {
   DsTheme._();
 
   static ThemeData light() => ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.light,
-        extensions: [
-          DsColorScheme.light(),
-          DsTypeScale.standard(),
-        ],
-      );
+    useMaterial3: true,
+    brightness: Brightness.light,
+    extensions: [DsColorScheme.light(), DsTypeScale.standard()],
+  );
 
   static ThemeData dark() => ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.dark,
-        extensions: [
-          DsColorScheme.dark(),
-          DsTypeScale.standard(),
-        ],
-      );
+    useMaterial3: true,
+    brightness: Brightness.dark,
+    extensions: [DsColorScheme.dark(), DsTypeScale.standard()],
+  );
 }

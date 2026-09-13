@@ -34,9 +34,7 @@ base class BaseRadioListTile<T> extends StatelessWidget {
         ? colors.backgroundSubtle
         : colors.backgroundSurface;
 
-    final titleColor = isEnabled
-        ? colors.textPrimary
-        : colors.textDisabled;
+    final titleColor = isEnabled ? colors.textPrimary : colors.textDisabled;
 
     final subtitleColor = isEnabled
         ? colors.textSecondary
@@ -81,8 +79,7 @@ base class BaseRadioListTile<T> extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        if (title != null)
-                          _buildTitle(context, titleColor),
+                        if (title != null) _buildTitle(context, titleColor),
                         if (subtitle != null) ...[
                           SizedBox(height: DsSpacing.verticalSpace4),
                           _buildSubtitle(context, subtitleColor),
@@ -111,23 +108,27 @@ base class BaseRadioListTile<T> extends StatelessWidget {
 
   Widget _buildTitle(BuildContext context, Color color) {
     return switch (title!) {
-      _DsRadioListTileTitleText(:final data) =>
-        DsText.bodyLarge(data, color: color),
+      _DsRadioListTileTitleText(:final data) => DsText.bodyLarge(
+        data,
+        color: color,
+      ),
       _DsRadioListTileTitleWidget(:final child) => DefaultTextStyle(
-          style: context.dsType.bodyLarge.copyWith(color: color),
-          child: child,
-        ),
+        style: context.dsType.bodyLarge.copyWith(color: color),
+        child: child,
+      ),
     };
   }
 
   Widget _buildSubtitle(BuildContext context, Color color) {
     return switch (subtitle!) {
-      _DsRadioListTileSubtitleText(:final data) =>
-        DsText.bodyMedium(data, color: color),
+      _DsRadioListTileSubtitleText(:final data) => DsText.bodyMedium(
+        data,
+        color: color,
+      ),
       _DsRadioListTileSubtitleWidget(:final child) => DefaultTextStyle(
-          style: context.dsType.bodyMedium.copyWith(color: color),
-          child: child,
-        ),
+        style: context.dsType.bodyMedium.copyWith(color: color),
+        child: child,
+      ),
     };
   }
 }

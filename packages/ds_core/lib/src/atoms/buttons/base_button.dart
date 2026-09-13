@@ -29,8 +29,7 @@ base class BaseButton extends StatelessWidget {
       colors: colors,
     );
 
-    final iconColor =
-        style.foregroundColor?.resolve({}) ?? colors.onPrimary;
+    final iconColor = style.foregroundColor?.resolve({}) ?? colors.onPrimary;
 
     return SizedBox(
       width: isFullWidth ? double.infinity : null,

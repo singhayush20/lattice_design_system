@@ -34,28 +34,23 @@ base class BaseCheckboxListTile extends StatelessWidget {
         ? colors.backgroundError
         : colors.backgroundSurface;
 
-    final titleColor = isEnabled
-        ? colors.textPrimary
-        : colors.textDisabled;
+    final titleColor = isEnabled ? colors.textPrimary : colors.textDisabled;
 
     final subtitleColor = isEnabled
         ? colors.textSecondary
         : colors.textDisabled;
 
-    final iconColor =
-        isEnabled ? colors.iconPrimary : colors.iconDisabled;
+    final iconColor = isEnabled ? colors.iconPrimary : colors.iconDisabled;
 
-    final checkboxFillColor = WidgetStateProperty.resolveWith<Color>(
-      (states) {
-        if (states.contains(WidgetState.disabled)) {
-          return colors.iconDisabled.withAlpha(0x1A);
-        }
-        if (hasError) {
-          return colors.backgroundError;
-        }
-        return colors.primary;
-      },
-    );
+    final checkboxFillColor = WidgetStateProperty.resolveWith<Color>((states) {
+      if (states.contains(WidgetState.disabled)) {
+        return colors.iconDisabled.withAlpha(0x1A);
+      }
+      if (hasError) {
+        return colors.backgroundError;
+      }
+      return colors.primary;
+    });
 
     final checkColor = isEnabled ? colors.onPrimary : colors.iconDisabled;
 
@@ -79,7 +74,9 @@ base class BaseCheckboxListTile extends StatelessWidget {
       color: backgroundColor,
       child: InkWell(
         onTap: isEnabled && onChanged != null
-            ? () => onChanged!(tristate && value == null ? true : !(value ?? false))
+            ? () => onChanged!(
+                tristate && value == null ? true : !(value ?? false),
+              )
             : null,
         child: Container(
           constraints: BoxConstraints(minHeight: minHeight),
@@ -98,8 +95,7 @@ base class BaseCheckboxListTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    if (title != null)
-                      title!.build(context, titleColor),
+                    if (title != null) title!.build(context, titleColor),
                     if (subtitle != null) ...[
                       SizedBox(height: DsSpacing.verticalSpace4),
                       subtitle!.build(context, subtitleColor),

@@ -23,7 +23,8 @@ base class BaseDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.dsColors;
-    final effectiveColor = color ??
+    final effectiveColor =
+        color ??
         (weight == DsDividerWeight.defaultWeight
             ? colors.borderDefault
             : colors.borderSubtle);
@@ -112,7 +113,13 @@ class _DividerPainter extends CustomPainter {
     }
   }
 
-  void _drawDashedLine(Canvas canvas, Paint paint, Offset start, Offset end, double length) {
+  void _drawDashedLine(
+    Canvas canvas,
+    Paint paint,
+    Offset start,
+    Offset end,
+    double length,
+  ) {
     const dashLength = 4.0;
     const gapLength = 4.0;
     const patternLength = dashLength + gapLength;
@@ -131,12 +138,21 @@ class _DividerPainter extends CustomPainter {
     final remainingLength = length - dashCount * patternLength;
     if (remainingLength > 0) {
       final dashStart = start + direction * (dashCount * patternLength);
-      final dashEnd = dashStart + direction * (remainingLength < dashLength ? remainingLength : dashLength);
+      final dashEnd =
+          dashStart +
+          direction *
+              (remainingLength < dashLength ? remainingLength : dashLength);
       canvas.drawLine(dashStart, dashEnd, paint);
     }
   }
 
-  void _drawDottedLine(Canvas canvas, Paint paint, Offset start, Offset end, double length) {
+  void _drawDottedLine(
+    Canvas canvas,
+    Paint paint,
+    Offset start,
+    Offset end,
+    double length,
+  ) {
     const dotDiameter = 4.0;
     const gapLength = 4.0;
     const patternLength = dotDiameter + gapLength;
@@ -147,9 +163,12 @@ class _DividerPainter extends CustomPainter {
     final direction = (end - start) / length;
 
     for (int i = 0; i < dotCount; i++) {
-      final dotCenter = start + direction * (i * patternLength + dotDiameter / 2);
-      if (dotCenter.dx >= start.dx - 0.5 && dotCenter.dx <= end.dx + 0.5 &&
-          dotCenter.dy >= start.dy - 0.5 && dotCenter.dy <= end.dy + 0.5) {
+      final dotCenter =
+          start + direction * (i * patternLength + dotDiameter / 2);
+      if (dotCenter.dx >= start.dx - 0.5 &&
+          dotCenter.dx <= end.dx + 0.5 &&
+          dotCenter.dy >= start.dy - 0.5 &&
+          dotCenter.dy <= end.dy + 0.5) {
         canvas.drawCircle(dotCenter, thickness / 2, paint);
       }
     }
