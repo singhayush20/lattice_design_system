@@ -1,33 +1,34 @@
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DsSize {
   DsSize._();
-  static const double size2 = 2;
-  static const double size4 = 4;
-  static const double size6 = 6;
-  static const double size8 = 8;
-  static const double size10 = 10;
-  static const double size12 = 12;
-  static const double size14 = 14;
-  static const double size16 = 16;
-  static const double size18 = 18;
-  static const double size20 = 20;
-  static const double size24 = 24;
-  static const double size28 = 28;
-  static const double size32 = 32;
-  static const double size36 = 36;
-  static const double size40 = 40;
-  static const double size44 = 44;
-  static const double size48 = 48;
-  static const double size52 = 52;
-  static const double size56 = 56;
-  static const double size60 = 60;
-  static const double size64 = 64;
-  static const double size72 = 72;
-  static const double size80 = 80;
-  static const double size96 = 96;
-  static const double size112 = 112;
-  static const double size128 = 128;
-  static const double size144 = 144;
-  static const double size160 = 160;
+  
+  static double get size2 => 2.r;
+  static double get size4 => 4.r;
+  static double get size6 => 6.r;
+  static double get size8 => 8.r;
+  static double get size10 => 10.r;
+  static double get size12 => 12.r;
+  static double get size14 => 14.r;
+  static double get size16 => 16.r;
+  static double get size18 => 18.r;
+  static double get size20 => 20.r;
+  static double get size24 => 24.r;
+  static double get size28 => 28.r;
+  static double get size32 => 32.r;
+  static double get size36 => 36.r;
+  static double get size40 => 40.r;
+  static double get size44 => 44.r;
+  static double get size48 => 48.r;
+  static double get size52 => 52.r;
+  static double get size56 => 56.r;
+  static double get size60 => 60.r;
+  static double get size64 => 64.r;
+  static double get size72 => 72.r;
+  static double get size80 => 80.r;
+  static double get size96 => 96.r;
+  static double get size112 => 112.r;
+  static double get size128 => 128.r;
+  static double get size144 => 144.r;
+  static double get size160 => 160.r;
 }

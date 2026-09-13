@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DsRadius {
   DsRadius._();
-  static const double radius2 = 2;
-  static const double radius4 = 4;
-  static const double radius6 = 6;
-  static const double radius8 = 8;
-  static const double radius10 = 10;
-  static const double radius12 = 12;
-  static const double radius16 = 16;
-  static const double radius20 = 20;
-  static const double radius24 = 24;
-  static const double radius28 = 28;
-  static const double radius32 = 32;
-  static const double radiusFull = 9999;
+  
+  static double get radius2 => 2.r;
+  static double get radius4 => 4.r;
+  static double get radius6 => 6.r;
+  static double get radius8 => 8.r;
+  static double get radius10 => 10.r;
+  static double get radius12 => 12.r;
+  static double get radius16 => 16.r;
+  static double get radius20 => 20.r;
+  static double get radius24 => 24.r;
+  static double get radius28 => 28.r;
+  static double get radius32 => 32.r;
+  static double get radiusFull => 9999.r;
+  
   static BorderRadius get circular2 => BorderRadius.circular(radius2);
   static BorderRadius get circular4 => BorderRadius.circular(radius4);
   static BorderRadius get circular6 => BorderRadius.circular(radius6);

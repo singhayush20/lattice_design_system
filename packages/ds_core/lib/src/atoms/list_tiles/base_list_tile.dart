@@ -46,7 +46,7 @@ base class BaseListTile extends StatelessWidget {
       child: InkWell(
         onTap: isEnabled ? onTap : null,
         child: Padding(
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             horizontal: DsSpacing.horizontalSpace16,
             vertical: DsSpacing.verticalSpace12,
           ),
@@ -54,7 +54,7 @@ base class BaseListTile extends StatelessWidget {
             children: [
               if (leading != null) ...[
                 leading!.build(color: iconColor),
-                const SizedBox(width: DsSpacing.horizontalSpace12),
+                SizedBox(width: DsSpacing.horizontalSpace12),
               ],
               Expanded(
                 child: Column(
@@ -64,14 +64,14 @@ base class BaseListTile extends StatelessWidget {
                     if (title != null)
                       _buildTitle(context, titleColor),
                     if (subtitle != null) ...[
-                      const SizedBox(height: DsSpacing.verticalSpace4),
+                      SizedBox(height: DsSpacing.verticalSpace4),
                       _buildSubtitle(context, subtitleColor),
                     ],
                   ],
                 ),
               ),
               if (trailing != null) ...[
-                const SizedBox(width: DsSpacing.horizontalSpace12),
+                SizedBox(width: DsSpacing.horizontalSpace12),
                 trailing!.build(color: iconColor),
               ],
             ],

@@ -42,7 +42,7 @@ base class BaseButton extends StatelessWidget {
           children: [
             if (leading != null) ...[
               leading!.build(color: iconColor),
-              const SizedBox(width: DsSpacing.horizontalSpace8),
+              SizedBox(width: DsSpacing.horizontalSpace8),
             ],
             DsText.labelLarge(data),
           ],

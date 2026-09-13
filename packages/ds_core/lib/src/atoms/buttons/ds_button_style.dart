@@ -52,11 +52,11 @@ class _DsButtonStyleResolver {
 
     final EdgeInsetsGeometry padding = switch (size) {
       DsButtonSize.small =>
-        const EdgeInsets.symmetric(horizontal: DsSpacing.horizontalSpace12),
+        EdgeInsets.symmetric(horizontal: DsSpacing.horizontalSpace12),
       DsButtonSize.medium =>
-        const EdgeInsets.symmetric(horizontal: DsSpacing.horizontalSpace16),
+        EdgeInsets.symmetric(horizontal: DsSpacing.horizontalSpace16),
       DsButtonSize.large =>
-        const EdgeInsets.symmetric(horizontal: DsSpacing.horizontalSpace24),
+        EdgeInsets.symmetric(horizontal: DsSpacing.horizontalSpace24),
     };
 
     final Color foregroundColor;
