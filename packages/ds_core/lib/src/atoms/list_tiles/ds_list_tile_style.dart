@@ -6,6 +6,17 @@ sealed class DsListTileTitle {
   const DsListTileTitle();
   const factory DsListTileTitle.text(String data) = _DsListTileTitleText;
   const factory DsListTileTitle.widget(Widget child) = _DsListTileTitleWidget;
+
+  Widget build(BuildContext context, Color color) {
+    return switch (this) {
+      _DsListTileTitleText(:final data) =>
+        DsText.bodyLarge(data, color: color),
+      _DsListTileTitleWidget(:final child) => DefaultTextStyle(
+          style: context.dsType.bodyLarge.copyWith(color: color),
+          child: child,
+        ),
+    };
+  }
 }
 
 final class _DsListTileTitleText extends DsListTileTitle {
@@ -23,6 +34,17 @@ sealed class DsListTileSubtitle {
   const factory DsListTileSubtitle.text(String data) = _DsListTileSubtitleText;
   const factory DsListTileSubtitle.widget(Widget child) =
       _DsListTileSubtitleWidget;
+
+  Widget build(BuildContext context, Color color) {
+    return switch (this) {
+      _DsListTileSubtitleText(:final data) =>
+        DsText.bodyMedium(data, color: color),
+      _DsListTileSubtitleWidget(:final child) => DefaultTextStyle(
+          style: context.dsType.bodyMedium.copyWith(color: color),
+          child: child,
+        ),
+    };
+  }
 }
 
 final class _DsListTileSubtitleText extends DsListTileSubtitle {
