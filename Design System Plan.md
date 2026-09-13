@@ -164,6 +164,19 @@ Each phase has: **Objective, Tasks, Deliverables, Exit Criteria**. Effort units
 
 **Deliverables:** Fully functional foundations layer, unit-tested, exported via `ds_core.dart`.
 
+**How to use the flutter_screenutil**-
+
+| Token Type                                  | Extension               | Rationale                                                                                                                                                                |
+| ------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Radius**                                  | **`.r`**                | Radius must scale uniformly. If a screen gets wider but not taller, **`.r`** takes the smaller scale factor so your circles and rounded corners don't become ovals.      |
+| **Icon Sizing**                             | **`.r`**                | Icons are square and must maintain their aspect ratio. **`.r`** ensures they scale uniformly regardless of changes in screen dimensions.                                 |
+| **Fixed Component Sizing** (Heights/Widths) | **`.h` / `.w`**         | Use **`.h`** for component heights (e.g., button height) to maintain vertical rhythm. Use **`.w`** for widths.                                                           |
+| **Horizontal Spacing**                      | **`.w`**                | Padding and margins driving horizontal layout should scale relative to the screen width.                                                                                 |
+| **Vertical Spacing**                        | **`.h`**                | Padding and margins driving vertical layout should scale relative to the screen height.                                                                                  |
+| **Radial/Omni Spacing**                     | **`.r`**                | For omni-directional gaps (e.g., `Row.spacing`, `Wrap.spacing`), use **`.r`** so the gap doesn't distort when the screen aspect ratio changes.                           |
+| **Text Size**                               | **`.sp`**               | Respects the device's system font scaling for accessibility. If a user has "Large Text" enabled in OS settings, **`.sp`** scales accordingly, whereas **`.r`** does not. |     |
+
+
 **Exit Criteria:**
 
 - Unit tests: `copyWith`/`lerp` correctness, `DsResponsive` math correctness across ≥3 screen sizes.

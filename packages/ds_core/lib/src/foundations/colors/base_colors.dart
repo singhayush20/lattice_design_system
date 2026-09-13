@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 ///
 /// These colors should NOT be used directly in components.
 /// Use semantic colors from [DsColorScheme] instead.
-  final class BaseColors {
-    const BaseColors._();
+final class BaseColors {
+  const BaseColors._();
 
   // ==================== NEUTRAL PALETTE ====================
   // Shades from neutral-50 to neutral-900
