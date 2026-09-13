@@ -32,4 +32,12 @@ class DsSize {
   static double get size128 => 128.r;
   static double get size144 => 144.r;
   static double get size160 => 160.r;
+  
+  static double get iconSize14 => 14.r;
+  static double get iconSize16 => 16.r;
+  static double get iconSize18 => 18.r;
+  static double get iconSize20 => 20.r;
+  static double get iconSize24 => 24.r;
+  static double get iconSize32 => 32.r;
+  static double get iconSize48 => 48.r;
 }

@@ -18,3 +18,5 @@ export 'src/atoms/typography/ds_text.dart';
 export 'src/atoms/buttons/ds_button.dart';
 export 'src/atoms/list_tiles/ds_list_tile.dart';
 export 'src/atoms/inputs/ds_text_field.dart';
+export 'src/molecules/dialogs/ds_modal_dialog.dart';
+export 'src/molecules/bottom_sheets/ds_modal_bottom_sheet.dart';
