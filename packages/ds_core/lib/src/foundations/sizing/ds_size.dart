@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class DsSize {
   DsSize._();
   
+  static double get size1 => 1.r;
   static double get size2 => 2.r;
   static double get size4 => 4.r;
   static double get size6 => 6.r;

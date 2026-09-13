@@ -17,3 +17,4 @@ export 'src/theme/ds_theme_scope.dart';
 export 'src/atoms/typography/ds_text.dart';
 export 'src/atoms/buttons/ds_button.dart';
 export 'src/atoms/list_tiles/ds_list_tile.dart';
+export 'src/atoms/inputs/ds_text_field.dart';
