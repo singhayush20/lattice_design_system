@@ -88,7 +88,7 @@ class _DsButtonStyleResolver {
     }
 
     return ElevatedButton.styleFrom(
-      minimumSize: Size(height, height),
+      minimumSize: Size.fromHeight(height),
       padding: padding,
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
