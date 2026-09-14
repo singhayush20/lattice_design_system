@@ -4,58 +4,106 @@ enum DsListTileVariant { defaultVariant, selectable, navigable }
 
 sealed class DsListTileTitle {
   const DsListTileTitle();
-  const factory DsListTileTitle.text(String data) = _DsListTileTitleText;
-  const factory DsListTileTitle.widget(Widget child) = _DsListTileTitleWidget;
+  Widget build(BuildContext context, Color color);
+}
 
-  Widget build(BuildContext context, Color color) {
-    return switch (this) {
-      _DsListTileTitleText(:final data) => DsText.bodyLarge(data, color: color),
-      _DsListTileTitleWidget(:final child) => DefaultTextStyle(
+final class DsListTileTitleBody extends DsListTileTitle {
+  const DsListTileTitleBody(this.data);
+  final String data;
+
+  @override
+  Widget build(BuildContext context, Color color) =>
+      DsText.bodyLarge(data, color: color);
+}
+
+final class DsListTileTitleBodyMedium extends DsListTileTitle {
+  const DsListTileTitleBodyMedium(this.data);
+  final String data;
+
+  @override
+  Widget build(BuildContext context, Color color) =>
+      DsText.bodyMedium(data, color: color);
+}
+
+final class DsListTileTitleHeadingSmall extends DsListTileTitle {
+  const DsListTileTitleHeadingSmall(this.data);
+  final String data;
+
+  @override
+  Widget build(BuildContext context, Color color) =>
+      DsText.headlineSmall(data, color: color);
+}
+
+final class DsListTileTitleHeadingMedium extends DsListTileTitle {
+  const DsListTileTitleHeadingMedium(this.data);
+  final String data;
+
+  @override
+  Widget build(BuildContext context, Color color) =>
+      DsText.headlineMedium(data, color: color);
+}
+
+final class DsListTileTitleLabelLarge extends DsListTileTitle {
+  const DsListTileTitleLabelLarge(this.data);
+  final String data;
+
+  @override
+  Widget build(BuildContext context, Color color) =>
+      DsText.labelLarge(data, color: color);
+}
+
+final class DsListTileTitleCustom extends DsListTileTitle {
+  const DsListTileTitleCustom(this.child);
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context, Color color) => DefaultTextStyle(
         style: context.dsType.bodyLarge.copyWith(color: color),
         child: child,
-      ),
-    };
-  }
-}
-
-final class _DsListTileTitleText extends DsListTileTitle {
-  const _DsListTileTitleText(this.data);
-  final String data;
-}
-
-final class _DsListTileTitleWidget extends DsListTileTitle {
-  const _DsListTileTitleWidget(this.child);
-  final Widget child;
+      );
 }
 
 sealed class DsListTileSubtitle {
   const DsListTileSubtitle();
-  const factory DsListTileSubtitle.text(String data) = _DsListTileSubtitleText;
-  const factory DsListTileSubtitle.widget(Widget child) =
-      _DsListTileSubtitleWidget;
+  Widget build(BuildContext context, Color color);
+}
 
-  Widget build(BuildContext context, Color color) {
-    return switch (this) {
-      _DsListTileSubtitleText(:final data) => DsText.bodyMedium(
-        data,
-        color: color,
-      ),
-      _DsListTileSubtitleWidget(:final child) => DefaultTextStyle(
+final class DsListTileSubtitleBody extends DsListTileSubtitle {
+  const DsListTileSubtitleBody(this.data);
+  final String data;
+
+  @override
+  Widget build(BuildContext context, Color color) =>
+      DsText.bodyMedium(data, color: color);
+}
+
+final class DsListTileSubtitleBodySmall extends DsListTileSubtitle {
+  const DsListTileSubtitleBodySmall(this.data);
+  final String data;
+
+  @override
+  Widget build(BuildContext context, Color color) =>
+      DsText.bodySmall(data, color: color);
+}
+
+final class DsListTileSubtitleLabel extends DsListTileSubtitle {
+  const DsListTileSubtitleLabel(this.data);
+  final String data;
+
+  @override
+  Widget build(BuildContext context, Color color) =>
+      DsText.labelMedium(data, color: color);
+}
+
+final class DsListTileSubtitleCustom extends DsListTileSubtitle {
+  const DsListTileSubtitleCustom(this.child);
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context, Color color) => DefaultTextStyle(
         style: context.dsType.bodyMedium.copyWith(color: color),
         child: child,
-      ),
-    };
-  }
-}
-
-final class _DsListTileSubtitleText extends DsListTileSubtitle {
-  const _DsListTileSubtitleText(this.data);
-  final String data;
-}
-
-final class _DsListTileSubtitleWidget extends DsListTileSubtitle {
-  const _DsListTileSubtitleWidget(this.child);
-  final Widget child;
+      );
 }
 
 sealed class DsListTileLeading {

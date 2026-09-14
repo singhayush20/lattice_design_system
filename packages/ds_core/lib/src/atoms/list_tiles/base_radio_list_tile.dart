@@ -18,117 +18,50 @@ base class BaseRadioListTile<T> extends StatelessWidget {
   final T value;
   final T? groupValue;
   final ValueChanged<T?>? onChanged;
-  final DsRadioListTileTitle? title;
-  final DsRadioListTileSubtitle? subtitle;
+  final DsListTileTitle? title;
+  final DsListTileSubtitle? subtitle;
   final DsRadioListTileLeading? leading;
   final DsRadioListTileTrailing? trailing;
   final bool isEnabled;
 
-  bool get _isSelected => value == groupValue;
-
   @override
   Widget build(BuildContext context) {
     final colors = context.dsColors;
-
-    final backgroundColor = _isSelected
-        ? colors.backgroundSubtle
-        : colors.backgroundSurface;
+    final isSelected = value == groupValue;
 
     final titleColor = isEnabled ? colors.textPrimary : colors.textDisabled;
-
-    final subtitleColor = isEnabled
-        ? colors.textSecondary
-        : colors.textDisabled;
-
+    final subtitleColor =
+        isEnabled ? colors.textSecondary : colors.textDisabled;
     final iconColor = isEnabled ? colors.iconPrimary : colors.iconDisabled;
 
-    final fillColor = WidgetStateProperty.resolveWith<Color>((states) {
-      if (states.contains(WidgetState.disabled)) {
-        return colors.iconDisabled.withValues(alpha: 0.12);
-      }
-      return colors.primary.withValues(alpha: 0.12);
-    });
+    Widget? leadingWidget;
+    if (leading != null) {
+      leadingWidget = leading!.build(color: iconColor);
+    }
 
-    return RadioGroup<T>(
+    Widget? trailingWidget;
+    if (trailing != null) {
+      trailingWidget = trailing!.build(color: iconColor);
+    }
+
+    return RadioListTile<T>(
+      value: value,
       groupValue: groupValue,
-      onChanged: onChanged ?? (_) {},
-      child: Material(
-        color: backgroundColor,
-        child: InkWell(
-          onTap: isEnabled && onChanged != null
-              ? () => onChanged!.call(value)
-              : null,
-          child: SizedBox(
-            height: DsSize.size48,
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: DsSpacing.horizontalSpace16,
-                vertical: variant == DsRadioListTileVariant.dense
-                    ? DsSpacing.verticalSpace8
-                    : DsSpacing.verticalSpace12,
-              ),
-              child: Row(
-                children: [
-                  if (leading != null) ...[
-                    leading!.build(color: iconColor),
-                    SizedBox(width: DsSpacing.horizontalSpace12),
-                  ],
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (title != null) _buildTitle(context, titleColor),
-                        if (subtitle != null) ...[
-                          SizedBox(height: DsSpacing.verticalSpace4),
-                          _buildSubtitle(context, subtitleColor),
-                        ],
-                      ],
-                    ),
-                  ),
-                  Radio<T>(
-                    value: value,
-                    fillColor: fillColor,
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    enabled: isEnabled,
-                  ),
-                  if (trailing != null) ...[
-                    SizedBox(width: DsSpacing.horizontalSpace12),
-                    trailing!.build(color: iconColor),
-                  ],
-                ],
-              ),
-            ),
-          ),
-        ),
+      onChanged: isEnabled ? onChanged : null,
+      title: title != null ? title!.build(context, titleColor) : null,
+      subtitle:
+          subtitle != null ? subtitle!.build(context, subtitleColor) : null,
+      secondary: trailingWidget,
+      tileColor: colors.backgroundPrimary,
+      selectedTileColor: colors.backgroundSubtle,
+      selected: isSelected,
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: DsSpacing.horizontalSpace16,
       ),
+      visualDensity:
+          variant == DsRadioListTileVariant.dense ? VisualDensity.compact : null,
+      controlAffinity: ListTileControlAffinity.trailing,
+      dense: variant == DsRadioListTileVariant.dense,
     );
-  }
-
-  Widget _buildTitle(BuildContext context, Color color) {
-    return switch (title!) {
-      _DsRadioListTileTitleText(:final data) => DsText.bodyLarge(
-        data,
-        color: color,
-      ),
-      _DsRadioListTileTitleWidget(:final child) => DefaultTextStyle(
-        style: context.dsType.bodyLarge.copyWith(color: color),
-        child: child,
-      ),
-    };
-  }
-
-  Widget _buildSubtitle(BuildContext context, Color color) {
-    return switch (subtitle!) {
-      _DsRadioListTileSubtitleText(:final data) => DsText.bodyMedium(
-        data,
-        color: color,
-      ),
-      _DsRadioListTileSubtitleWidget(:final child) => DefaultTextStyle(
-        style: context.dsType.bodyMedium.copyWith(color: color),
-        child: child,
-      ),
-    };
   }
 }
