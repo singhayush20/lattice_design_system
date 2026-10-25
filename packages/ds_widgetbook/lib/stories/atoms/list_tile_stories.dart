@@ -41,8 +41,8 @@ Widget selectableListTileUseCase(BuildContext context) {
         mainAxisSize: MainAxisSize.min,
         children: [
           DsListTile.selectable(
-            title: DsListTileTitle.text(title),
-            subtitle: DsListTileSubtitle.text(subtitle),
+            title: DsListTileTitleBody(title),
+            subtitle: DsListTileSubtitleBody(subtitle),
             isSelected: isSelected,
             isEnabled: isEnabled,
             leading: showLeading ? DsListTileLeading.icon(Icons.settings) : null,
@@ -51,8 +51,8 @@ Widget selectableListTileUseCase(BuildContext context) {
           ),
           const SizedBox(height: 12),
           DsListTile.selectable(
-            title: DsListTileTitle.text('$title 2'),
-            subtitle: DsListTileSubtitle.text('$subtitle 2'),
+            title: DsListTileTitleBody('$title 2'),
+            subtitle: DsListTileSubtitleBody('$subtitle 2'),
             isSelected: !isSelected,
             isEnabled: isEnabled,
             leading: showLeading ? DsListTileLeading.icon(Icons.account_circle) : null,
@@ -99,8 +99,8 @@ Widget navigableListTileUseCase(BuildContext context) {
         mainAxisSize: MainAxisSize.min,
         children: [
           DsListTile.navigable(
-            title: DsListTileTitle.text(title),
-            subtitle: DsListTileSubtitle.text(subtitle),
+            title: DsListTileTitleBody(title),
+            subtitle: DsListTileSubtitleBody(subtitle),
             isEnabled: isEnabled,
             leading: showLeading ? DsListTileLeading.icon(Icons.person) : null,
             trailing: showTrailing ? DsListTileTrailing.icon(Icons.chevron_right) : null,
@@ -108,8 +108,8 @@ Widget navigableListTileUseCase(BuildContext context) {
           ),
           const SizedBox(height: 12),
           DsListTile.navigable(
-            title: DsListTileTitle.text('Notifications'),
-            subtitle: DsListTileSubtitle.text('Manage notification preferences'),
+            title: DsListTileTitleBody('Notifications'),
+            subtitle: DsListTileSubtitleBody('Manage notification preferences'),
             isEnabled: isEnabled,
             leading: showLeading ? DsListTileLeading.icon(Icons.notifications) : null,
             trailing: showTrailing ? DsListTileTrailing.icon(Icons.chevron_right) : null,
@@ -152,8 +152,8 @@ Widget defaultListTileUseCase(BuildContext context) {
     child: ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 400),
       child: DsListTile(
-        title: DsListTileTitle.text(title),
-        subtitle: DsListTileSubtitle.text(subtitle),
+        title: DsListTileTitleBody(title),
+        subtitle: DsListTileSubtitleBody(subtitle),
         isEnabled: isEnabled,
         leading: showLeading ? DsListTileLeading.icon(Icons.info) : null,
         trailing: showTrailing ? DsListTileTrailing.icon(Icons.more_vert) : null,

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:ds_core/ds_core.dart';
-
-
 
 @UseCase(
   name: 'Modal Bottom Sheet',
@@ -46,9 +45,7 @@ Widget modalBottomSheetUseCase(BuildContext context) {
           isDismissible: isDismissible,
           primaryButtonText: primaryButtonText,
           secondaryButtonText: secondaryButtonText,
-          primaryIcon: showPrimaryIcon
-              ? DsBottomSheetIcon.icon(Icons.share)
-              : null,
+          primaryIcon: showPrimaryIcon ? DsBottomSheetIcon.iconData(Icons.share) : null,
           onPrimaryButtonPressed: () {
             Navigator.of(context).pop();
             debugPrint('Bottom sheet primary action');
@@ -75,8 +72,7 @@ Widget modalBottomSheetSingleActionUseCase(BuildContext context) {
   );
   final description = context.knobs.string(
     label: 'Description',
-    initialValue:
-        'This action will permanently delete the selected item. Are you sure?',
+    initialValue: 'This action will permanently delete the selected item. Are you sure?',
   );
   final isDismissible = context.knobs.boolean(
     label: 'Dismissible',
