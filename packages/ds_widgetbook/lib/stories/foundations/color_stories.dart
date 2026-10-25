@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:ds_core/ds_core.dart';
 
@@ -242,13 +241,11 @@ class _ColorSwatchGrid extends StatelessWidget {
           Wrap(
             spacing: 12,
             runSpacing: 12,
-            children: keys.map((key) {
-              final color = colors[key]!;
-              final luminance = color.computeLuminance();
-              final textColor = luminance > 0.5 ? Colors.black : Colors.white;
+children: keys.map((key) {
+                final color = colors[key]!;
 
-              return Tooltip(
-                message: '#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}',
+                return Tooltip(
+                message: '#${color.toARGB32().toRadixString(16).padLeft(8, '0').toUpperCase()}',
                 child: SizedBox(
                   width: 140,
                   child: Column(

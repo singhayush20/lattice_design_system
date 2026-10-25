@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:ds_core/ds_core.dart';
-
-
 
 @UseCase(
   name: 'Circular Progress',
@@ -55,18 +54,14 @@ Widget circularProgressUseCase(BuildContext context) {
   );
 
   final resolvedColor = _resolveColor(context, color);
-  final resolvedBgColor = backgroundColor == Colors.transparent
-      ? null
-      : backgroundColor;
+  final resolvedBgColor = backgroundColor == Colors.transparent ? null : backgroundColor;
 
   return Center(
     child: Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          isIndeterminate
-              ? 'Indeterminate'
-              : 'Determinate (${(value * 100).round()}%)',
+          isIndeterminate ? 'Indeterminate' : 'Determinate (${(value! * 100).round()}%)',
           style: Theme.of(context).textTheme.titleMedium,
         ),
         const SizedBox(height: 24),

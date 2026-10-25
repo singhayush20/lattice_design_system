@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final lightTheme = DsColorScheme.light();
     final darkTheme = DsColorScheme.dark();
-    
+
     return MaterialApp(
       title: 'Lattice Design System',
       theme: ThemeData(
