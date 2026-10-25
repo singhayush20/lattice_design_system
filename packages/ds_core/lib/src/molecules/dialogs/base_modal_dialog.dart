@@ -106,20 +106,23 @@ base class BaseModalDialog extends StatelessWidget {
     final hasPrimary = primaryButtonText != null;
     final hasSecondary = secondaryButtonText != null;
 
-    return Row(
-      mainAxisAlignment: hasSecondary
-          ? MainAxisAlignment.spaceBetween
-          : MainAxisAlignment.end,
-      children: [
-        if (hasSecondary)
-          DsButton.secondary(
-            secondaryButtonText!,
-            onTap:
-                onSecondaryButtonPressed ?? () => Navigator.of(context).pop(),
-          ),
-        if (hasPrimary)
-          DsButton.primary(primaryButtonText!, onTap: onPrimaryButtonPressed),
-      ],
+    return SizedBox(
+      width: double.infinity,
+      child: Row(
+        mainAxisAlignment: hasSecondary
+            ? MainAxisAlignment.spaceBetween
+            : MainAxisAlignment.end,
+        children: [
+          if (hasSecondary)
+            DsButton.secondary(
+              secondaryButtonText!,
+              onTap:
+                  onSecondaryButtonPressed ?? () => Navigator.of(context).pop(),
+            ),
+          if (hasPrimary)
+            DsButton.primary(primaryButtonText!, onTap: onPrimaryButtonPressed),
+        ],
+      ),
     );
   }
 }
