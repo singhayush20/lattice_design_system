@@ -48,9 +48,9 @@ base class BaseRadioListTile<T> extends StatelessWidget {
       value: value,
       groupValue: groupValue,
       onChanged: isEnabled ? onChanged : null,
-      title: title != null ? title!.build(context, titleColor) : null,
+      title: title?.build(context, titleColor),
       subtitle:
-          subtitle != null ? subtitle!.build(context, subtitleColor) : null,
+          subtitle?.build(context, subtitleColor),
       secondary: trailingWidget,
       tileColor: colors.backgroundPrimary,
       selectedTileColor: colors.backgroundSubtle,
