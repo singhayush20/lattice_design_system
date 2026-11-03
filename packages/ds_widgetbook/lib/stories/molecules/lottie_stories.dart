@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:ds_core/ds_core.dart';
 
-
-
-@UseCase(name: 'Lottie Animation', type: DsLottie, path: '[Molecules]/Lottie')
+@UseCase(
+  name: 'Lottie Animation',
+  type: DsLottie,
+  path: '[Molecules]/Lottie',
+)
 Widget lottieUseCase(BuildContext context) {
   final lottieUrl = context.knobs.string(
     label: 'Lottie URL',
@@ -30,18 +33,24 @@ Widget lottieUseCase(BuildContext context) {
     initialOption: BoxFit.contain,
     labelBuilder: (v) => v.name,
   );
-  final repeat = context.knobs.boolean(label: 'Repeat', initialValue: true);
-  final reverse = context.knobs.boolean(label: 'Reverse', initialValue: false);
-  final animate = context.knobs.boolean(label: 'Animate', initialValue: true);
+  final repeat = context.knobs.boolean(
+    label: 'Repeat',
+    initialValue: true,
+  );
+  final reverse = context.knobs.boolean(
+    label: 'Reverse',
+    initialValue: false,
+  );
+  final animate = context.knobs.boolean(
+    label: 'Animate',
+    initialValue: true,
+  );
 
   return Center(
     child: Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          'Lottie Animation',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+        Text('Lottie Animation', style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: 16),
         DsLottie(
           lottieUrl: lottieUrl,
@@ -56,8 +65,8 @@ Widget lottieUseCase(BuildContext context) {
         Text(
           'URL: $lottieUrl',
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
           textAlign: TextAlign.center,
         ),
       ],
@@ -101,8 +110,8 @@ Widget lottieLoadingUseCase(BuildContext context) {
         Text(
           'Loading...',
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
         ),
       ],
     ),
@@ -126,16 +135,16 @@ Widget lottieSuccessUseCase(BuildContext context) {
     max: 300,
     divisions: 20,
   );
-  final repeat = context.knobs.boolean(label: 'Repeat', initialValue: false);
+  final repeat = context.knobs.boolean(
+    label: 'Repeat',
+    initialValue: false,
+  );
 
   return Center(
     child: Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          'Success Animation',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+        Text('Success Animation', style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: 16),
         DsLottie(
           lottieUrl: lottieUrl,
@@ -148,9 +157,9 @@ Widget lottieSuccessUseCase(BuildContext context) {
         const SizedBox(height: 16),
         Text(
           'Success!',
-          style: Theme.of(
-            context,
-          ).textTheme.titleLarge?.copyWith(color: context.dsColors.success),
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                color: context.dsColors.success,
+              ),
         ),
       ],
     ),

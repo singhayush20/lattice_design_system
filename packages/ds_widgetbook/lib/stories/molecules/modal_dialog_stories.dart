@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:ds_core/ds_core.dart';
 
-
-
-@UseCase(name: 'Modal Dialog', type: DsButton, path: '[Molecules]/Dialogs')
+@UseCase(
+  name: 'Modal Dialog',
+  type: DsButton,
+  path: '[Molecules]/Dialogs',
+)
 Widget modalDialogUseCase(BuildContext context) {
   final title = context.knobs.string(
     label: 'Title',
@@ -12,8 +15,7 @@ Widget modalDialogUseCase(BuildContext context) {
   );
   final description = context.knobs.string(
     label: 'Description',
-    initialValue:
-        'Are you sure you want to proceed? This action cannot be undone.',
+    initialValue: 'Are you sure you want to proceed? This action cannot be undone.',
   );
   final isDismissible = context.knobs.boolean(
     label: 'Dismissible',
@@ -43,9 +45,7 @@ Widget modalDialogUseCase(BuildContext context) {
           isDismissible: isDismissible,
           primaryButtonText: primaryButtonText,
           secondaryButtonText: secondaryButtonText,
-          primaryIcon: showPrimaryIcon
-              ? DsDialogIcon.icon(Icons.warning_amber_rounded)
-              : null,
+          primaryIcon: showPrimaryIcon ? DsDialogIcon.iconData(Icons.warning_amber_rounded) : null,
           onPrimaryButtonPressed: () {
             Navigator.of(context).pop();
             debugPrint('Dialog primary action');
@@ -109,7 +109,10 @@ Widget modalDialogNoSecondaryUseCase(BuildContext context) {
   path: '[Molecules]/Dialogs',
 )
 Widget modalDialogCustomIconUseCase(BuildContext context) {
-  final title = context.knobs.string(label: 'Title', initialValue: 'Success!');
+  final title = context.knobs.string(
+    label: 'Title',
+    initialValue: 'Success!',
+  );
   final description = context.knobs.string(
     label: 'Description',
     initialValue: 'Your changes have been saved successfully.',
@@ -133,7 +136,7 @@ Widget modalDialogCustomIconUseCase(BuildContext context) {
           description: DsDialogDescription.text(description),
           isDismissible: isDismissible,
           primaryButtonText: primaryButtonText,
-          primaryIcon: DsDialogIcon.icon(Icons.check_circle),
+          primaryIcon: DsDialogIcon.iconData(Icons.check_circle),
           onPrimaryButtonPressed: () {
             Navigator.of(context).pop();
             debugPrint('Success dialog acknowledged');

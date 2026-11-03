@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:ds_core/ds_core.dart';
 
-
-
-@UseCase(name: 'Network Image', type: DsImage, path: '[Molecules]/Images')
+@UseCase(
+  name: 'Network Image',
+  type: DsImage,
+  path: '[Molecules]/Images',
+)
 Widget networkImageUseCase(BuildContext context) {
   final mediaUrl = context.knobs.string(
     label: 'Image URL',
@@ -37,13 +40,18 @@ Widget networkImageUseCase(BuildContext context) {
       children: [
         Text('Network Image', style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: 16),
-        DsImage(mediaUrl: mediaUrl, width: width, height: height, fit: fit),
+        DsImage(
+          mediaUrl: mediaUrl,
+          width: width,
+          height: height,
+          fit: fit,
+        ),
         const SizedBox(height: 16),
         Text(
           'URL: $mediaUrl',
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
           textAlign: TextAlign.center,
         ),
       ],
@@ -51,12 +59,15 @@ Widget networkImageUseCase(BuildContext context) {
   );
 }
 
-@UseCase(name: 'SVG Network Image', type: DsImage, path: '[Molecules]/Images')
+@UseCase(
+  name: 'SVG Network Image',
+  type: DsImage,
+  path: '[Molecules]/Images',
+)
 Widget svgNetworkImageUseCase(BuildContext context) {
   final mediaUrl = context.knobs.string(
     label: 'SVG URL',
-    initialValue:
-        'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/heart.svg',
+    initialValue: 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/heart.svg',
   );
   final width = context.knobs.double.slider(
     label: 'Width',
@@ -83,18 +94,20 @@ Widget svgNetworkImageUseCase(BuildContext context) {
     child: Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          'SVG Network Image',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+        Text('SVG Network Image', style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: 16),
-        DsImage(mediaUrl: mediaUrl, width: width, height: height, fit: fit),
+        DsImage(
+          mediaUrl: mediaUrl,
+          width: width,
+          height: height,
+          fit: fit,
+        ),
         const SizedBox(height: 16),
         Text(
           'URL: $mediaUrl',
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
           textAlign: TextAlign.center,
         ),
       ],
@@ -133,10 +146,7 @@ Widget assetImagePlaceholderUseCase(BuildContext context) {
     child: Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          'Asset Image (placeholder)',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
+        Text('Asset Image (placeholder)', style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: 16),
         DsImage(
           mediaUrl: 'assets/images/placeholder.png',
@@ -148,8 +158,8 @@ Widget assetImagePlaceholderUseCase(BuildContext context) {
         Text(
           'Note: Add assets/images/placeholder.png to ds_widgetbook/pubspec.yaml to test',
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
           textAlign: TextAlign.center,
         ),
       ],

@@ -118,7 +118,7 @@ Color? _resolveSemanticColor(BuildContext context, _SemanticColor color) {
     case _SemanticColor.warning:
       return colors.textWarning;
     case _SemanticColor.info:
-      return colors.textInfo;
+      return colors.textLink;
     case _SemanticColor.link:
       return colors.textLink;
     case _SemanticColor.onSurface:
