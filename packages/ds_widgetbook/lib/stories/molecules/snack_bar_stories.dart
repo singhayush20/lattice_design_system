@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:ds_core/ds_core.dart';
 
-
-
-@UseCase(name: 'Snack Bar', type: DsButton, path: '[Molecules]/Snack Bars')
+@UseCase(
+  name: 'Snack Bar',
+  type: DsButton,
+  path: '[Molecules]/Snack Bars',
+)
 Widget snackBarUseCase(BuildContext context) {
   final message = context.knobs.string(
     label: 'Message',
@@ -32,10 +35,7 @@ Widget snackBarUseCase(BuildContext context) {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Snack Bar Demo',
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
+            Text('Snack Bar Demo', style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 24),
             DsButton.primary(
               'Show Snack Bar',
@@ -86,10 +86,7 @@ Widget snackBarErrorUseCase(BuildContext context) {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Error Snack Bar',
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
+            Text('Error Snack Bar', style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 24),
             DsButton.destructive(
               'Show Error Snack Bar',
@@ -141,10 +138,7 @@ Widget snackBarCustomActionUseCase(BuildContext context) {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Snack Bar with Action',
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
+            Text('Snack Bar with Action', style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 24),
             DsButton.primary(
               'Show Update Snack Bar',
@@ -154,8 +148,7 @@ Widget snackBarCustomActionUseCase(BuildContext context) {
                   message: message,
                   trailingActionIcon: Icons.system_update,
                   trailingActionLabel: actionLabel,
-                  onTrailingActionPressed: () =>
-                      debugPrint('Update action triggered'),
+                  onTrailingActionPressed: () => debugPrint('Update action triggered'),
                   duration: Duration(seconds: duration.round()),
                 );
               },

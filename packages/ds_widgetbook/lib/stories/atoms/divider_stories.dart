@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:ds_core/ds_core.dart';
 
-
-
-@UseCase(name: 'Horizontal', type: DsDivider, path: '[Atoms]/Dividers')
+@UseCase(
+  name: 'Horizontal',
+  type: DsDivider,
+  path: '[Atoms]/Dividers',
+)
 Widget horizontalDividerUseCase(BuildContext context) {
   final strokeStyle = context.knobs.object.dropdown<DsDividerStrokeStyle>(
     label: 'Stroke Style',
@@ -50,10 +53,7 @@ Widget horizontalDividerUseCase(BuildContext context) {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            'Horizontal Divider',
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
+          Text('Horizontal Divider', style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 16),
           DsDivider(
             axis: DsDividerAxis.horizontal,
@@ -82,7 +82,11 @@ Widget horizontalDividerUseCase(BuildContext context) {
   );
 }
 
-@UseCase(name: 'Vertical', type: DsDivider, path: '[Atoms]/Dividers')
+@UseCase(
+  name: 'Vertical',
+  type: DsDivider,
+  path: '[Atoms]/Dividers',
+)
 Widget verticalDividerUseCase(BuildContext context) {
   final strokeStyle = context.knobs.object.dropdown<DsDividerStrokeStyle>(
     label: 'Stroke Style',
@@ -128,10 +132,7 @@ Widget verticalDividerUseCase(BuildContext context) {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            'Vertical Divider',
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
+          Text('Vertical Divider', style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -160,7 +161,11 @@ Widget verticalDividerUseCase(BuildContext context) {
   );
 }
 
-@UseCase(name: 'Presets', type: DsDivider, path: '[Atoms]/Dividers')
+@UseCase(
+  name: 'Presets',
+  type: DsDivider,
+  path: '[Atoms]/Dividers',
+)
 Widget dividerPresetsUseCase(BuildContext context) {
   return Center(
     child: ConstrainedBox(
@@ -169,10 +174,7 @@ Widget dividerPresetsUseCase(BuildContext context) {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            'Divider Presets',
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
+          Text('Divider Presets', style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 16),
           _PresetTile(label: 'Solid (default)', child: const DsDivider()),
           const SizedBox(height: 8),
@@ -182,10 +184,7 @@ Widget dividerPresetsUseCase(BuildContext context) {
           const SizedBox(height: 8),
           _PresetTile(label: 'Subtle', child: const DsDivider.subtle()),
           const SizedBox(height: 8),
-          _PresetTile(
-            label: 'Vertical',
-            child: SizedBox(height: 60, child: const DsDivider.vertical()),
-          ),
+          _PresetTile(label: 'Vertical', child: SizedBox(height: 60, child: const DsDivider.vertical())),
         ],
       ),
     ),
@@ -206,9 +205,9 @@ class _PresetTile extends StatelessWidget {
         Expanded(
           child: Text(
             label,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium?.copyWith(color: colors.textSecondary),
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: colors.textSecondary,
+                ),
           ),
         ),
         Expanded(flex: 3, child: child),

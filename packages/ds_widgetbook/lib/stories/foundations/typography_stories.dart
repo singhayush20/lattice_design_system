@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:ds_core/ds_core.dart';
 
@@ -87,7 +86,6 @@ class _VariantTile extends StatelessWidget {
                 flex: 3,
                 child: entry.constructor(
                   'The quick brown fox jumps over the lazy dog. 0123456789',
-                  color: colors.textPrimary,
                 ),
               ),
             ],
@@ -108,7 +106,7 @@ class _VariantTile extends StatelessWidget {
                 flex: 3,
                 child: Text(
                   'fontSize: ${entry.style.fontSize?.toStringAsFixed(1)} | '
-                  'weight: ${entry.style.fontWeight?.index} | '
+                  'weight: ${entry.style.fontWeight?.value} | '
                   'height: ${entry.style.height?.toStringAsFixed(2)} | '
                   'letterSpacing: ${entry.style.letterSpacing?.toStringAsFixed(2)}',
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(

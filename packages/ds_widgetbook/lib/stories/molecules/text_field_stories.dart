@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:ds_core/ds_core.dart';
 
-
-
-@UseCase(name: 'Text Field', type: DsTextField, path: '[Molecules]/Text Field')
+@UseCase(
+  name: 'Text Field',
+  type: DsTextField,
+  path: '[Molecules]/Text Field',
+)
 Widget textFieldUseCase(BuildContext context) {
   final label = context.knobs.string(
     label: 'Label',
@@ -18,7 +21,10 @@ Widget textFieldUseCase(BuildContext context) {
     label: 'Error Text',
     initialValue: null,
   );
-  final enabled = context.knobs.boolean(label: 'Enabled', initialValue: true);
+  final enabled = context.knobs.boolean(
+    label: 'Enabled',
+    initialValue: true,
+  );
   final obscureText = context.knobs.boolean(
     label: 'Obscure Text',
     initialValue: false,
@@ -129,10 +135,7 @@ class _TextFieldWrapperState extends State<_TextFieldWrapper> {
               },
             ),
             const SizedBox(height: 24),
-            Text(
-              'Value: ${_controller.text}',
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
+            Text('Value: ${_controller.text}', style: Theme.of(context).textTheme.bodySmall),
           ],
         ),
       ),

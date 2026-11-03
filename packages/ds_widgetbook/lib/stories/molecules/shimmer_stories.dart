@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:ds_core/ds_core.dart';
 
-
-
-@UseCase(name: 'Shimmer', type: DsShimmer, path: '[Molecules]/Shimmer')
+@UseCase(
+  name: 'Shimmer',
+  type: DsShimmer,
+  path: '[Molecules]/Shimmer',
+)
 Widget shimmerUseCase(BuildContext context) {
-  final enabled = context.knobs.boolean(label: 'Enabled', initialValue: true);
+  final enabled = context.knobs.boolean(
+    label: 'Enabled',
+    initialValue: true,
+  );
   final color = context.knobs.colorOrNull(
     label: 'Shimmer Color',
     initialValue: null,
@@ -102,7 +108,10 @@ Widget shimmerUseCase(BuildContext context) {
   path: '[Molecules]/Shimmer',
 )
 Widget shimmerCardListUseCase(BuildContext context) {
-  final enabled = context.knobs.boolean(label: 'Enabled', initialValue: true);
+  final enabled = context.knobs.boolean(
+    label: 'Enabled',
+    initialValue: true,
+  );
   final color = context.knobs.colorOrNull(
     label: 'Shimmer Color',
     initialValue: null,
@@ -114,10 +123,7 @@ Widget shimmerCardListUseCase(BuildContext context) {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            'Shimmer Card List',
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
+          Text('Shimmer Card List', style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 16),
           DsShimmer(
             enabled: enabled,

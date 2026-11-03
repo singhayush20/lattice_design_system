@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart';
 import 'package:ds_core/ds_core.dart';
 
-
-
-@UseCase(name: 'App Bar', type: DsAppBar, path: '[Molecules]/App Bars')
+@UseCase(
+  name: 'App Bar',
+  type: DsAppBar,
+  path: '[Molecules]/App Bars',
+)
 Widget appBarUseCase(BuildContext context) {
-  final title = context.knobs.string(label: 'Title', initialValue: 'Settings');
+  final title = context.knobs.string(
+    label: 'Title',
+    initialValue: 'Settings',
+  );
   final subtitle = context.knobs.stringOrNull(
     label: 'Subtitle',
     initialValue: 'Manage your preferences',
@@ -64,16 +70,13 @@ Widget appBarUseCase(BuildContext context) {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'App Bar Content',
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
+            Text('App Bar Content', style: Theme.of(context).textTheme.headlineSmall),
             const SizedBox(height: 16),
             Text(
               'Configure the app bar using knobs',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
             ),
           ],
         ),
@@ -96,9 +99,18 @@ Widget sliverAppBarUseCase(BuildContext context) {
     label: 'Center Title',
     initialValue: false,
   );
-  final floating = context.knobs.boolean(label: 'Floating', initialValue: true);
-  final pinned = context.knobs.boolean(label: 'Pinned', initialValue: true);
-  final snap = context.knobs.boolean(label: 'Snap', initialValue: false);
+  final floating = context.knobs.boolean(
+    label: 'Floating',
+    initialValue: true,
+  );
+  final pinned = context.knobs.boolean(
+    label: 'Pinned',
+    initialValue: true,
+  );
+  final snap = context.knobs.boolean(
+    label: 'Snap',
+    initialValue: false,
+  );
 
   return MaterialApp(
     theme: DsTheme.light(),
