@@ -6,6 +6,7 @@ base class BaseModalBottomSheet extends StatelessWidget {
     required this.title,
     required this.description,
     this.primaryIcon,
+    this.iconPrimaryColor,
     this.primaryButtonText,
     this.onPrimaryButtonPressed,
     this.secondaryButtonText,
@@ -17,6 +18,7 @@ base class BaseModalBottomSheet extends StatelessWidget {
   final DsBottomSheetTitle title;
   final DsBottomSheetDescription description;
   final DsBottomSheetIcon? primaryIcon;
+  final Color? iconPrimaryColor;
   final String? primaryButtonText;
   final VoidCallback? onPrimaryButtonPressed;
   final String? secondaryButtonText;
@@ -65,47 +67,92 @@ base class BaseModalBottomSheet extends StatelessWidget {
                 constraints: const BoxConstraints(),
               ),
             ),
-          _buildTitle(context),
+          _BottomSheetTitle(title: title),
           SizedBox(height: DsSpacing.verticalSpace8),
           if (primaryIcon != null) ...[
-            Center(child: _buildPrimaryIcon(context)),
+            Center(
+              child: _BottomSheetPrimaryIcon(
+                icon: primaryIcon!,
+                color: iconPrimaryColor ?? colors.iconPrimary,
+              ),
+            ),
             SizedBox(height: DsSpacing.verticalSpace24),
           ],
-          _buildDescription(context),
+          _BottomSheetDescription(description: description),
           SizedBox(height: DsSpacing.verticalSpace32),
-          _buildActions(context),
+          _BottomSheetActions(
+            primaryButtonText: primaryButtonText,
+            onPrimaryButtonPressed: onPrimaryButtonPressed,
+            secondaryButtonText: secondaryButtonText,
+            onSecondaryButtonPressed: onSecondaryButtonPressed,
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildTitle(BuildContext context) => switch (title) {
-    _DsBottomSheetTitleText(:final data) => DsText.titleMedium(data),
-    _DsBottomSheetTitleWidget(:final child) => child,
-  };
+}
 
-  Widget _buildDescription(BuildContext context) => switch (description) {
-    _DsBottomSheetDescriptionText(:final data) => DsText.bodyMedium(
-      data,
-      color: context.dsColors.textSecondary,
-    ),
-    _DsBottomSheetDescriptionWidget(:final child) => child,
-  };
+class _BottomSheetTitle extends StatelessWidget {
+  const _BottomSheetTitle({required this.title});
+  final DsBottomSheetTitle title;
 
-  Widget _buildPrimaryIcon(BuildContext context) => switch (primaryIcon!) {
-    _DsBottomSheetIconData(:final data) => Icon(
-      data,
-      size: DsSize.iconSize48,
-      color: context.dsColors.primary,
-    ),
-    _DsBottomSheetIconAsset(:final path) => ImageIcon(
-      AssetImage(path),
-      size: DsSize.iconSize48,
-      color: context.dsColors.primary,
-    ),
-  };
+  @override
+  Widget build(BuildContext context) => switch (title) {
+        _DsBottomSheetTitleText(:final data) => DsText.titleMedium(data),
+        _DsBottomSheetTitleWidget(:final child) => child,
+      };
+}
 
-  Widget _buildActions(BuildContext context) {
+class _BottomSheetDescription extends StatelessWidget {
+  const _BottomSheetDescription({required this.description});
+  final DsBottomSheetDescription description;
+
+  @override
+  Widget build(BuildContext context) => switch (description) {
+        _DsBottomSheetDescriptionText(:final data) => DsText.bodyMedium(
+              data,
+              color: context.dsColors.textSecondary,
+            ),
+        _DsBottomSheetDescriptionWidget(:final child) => child,
+      };
+}
+
+class _BottomSheetPrimaryIcon extends StatelessWidget {
+  const _BottomSheetPrimaryIcon({required this.icon, required this.color});
+  final DsBottomSheetIcon icon;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) => switch (icon) {
+        _DsBottomSheetIconData(:final data) => Icon(
+              data,
+              size: DsSize.iconSize48,
+              color: color,
+            ),
+        _DsBottomSheetIconAsset(:final path) => ImageIcon(
+              AssetImage(path),
+              size: DsSize.iconSize48,
+              color: color,
+            ),
+      };
+}
+
+class _BottomSheetActions extends StatelessWidget {
+  const _BottomSheetActions({
+    this.primaryButtonText,
+    this.onPrimaryButtonPressed,
+    this.secondaryButtonText,
+    this.onSecondaryButtonPressed,
+  });
+
+  final String? primaryButtonText;
+  final VoidCallback? onPrimaryButtonPressed;
+  final String? secondaryButtonText;
+  final VoidCallback? onSecondaryButtonPressed;
+
+  @override
+  Widget build(BuildContext context) {
     final hasPrimary = primaryButtonText != null;
     final hasSecondary = secondaryButtonText != null;
     return Column(
@@ -123,8 +170,7 @@ base class BaseModalBottomSheet extends StatelessWidget {
           DsButton.secondary(
             secondaryButtonText!,
             isFullWidth: true,
-            onTap:
-                onSecondaryButtonPressed ?? () => Navigator.of(context).pop(),
+            onTap: onSecondaryButtonPressed ?? () => Navigator.of(context).pop(),
           ),
       ],
     );

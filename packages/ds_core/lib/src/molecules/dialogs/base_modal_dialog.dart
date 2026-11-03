@@ -6,6 +6,7 @@ base class BaseModalDialog extends StatelessWidget {
     required this.title,
     required this.description,
     this.primaryIcon,
+    this.iconPrimaryColor,
     this.primaryButtonText,
     this.onPrimaryButtonPressed,
     this.secondaryButtonText,
@@ -17,6 +18,7 @@ base class BaseModalDialog extends StatelessWidget {
   final DsDialogTitle title;
   final DsDialogDescription description;
   final DsDialogIcon? primaryIcon;
+  final Color? iconPrimaryColor;
   final String? primaryButtonText;
   final VoidCallback? onPrimaryButtonPressed;
   final String? secondaryButtonText;
@@ -44,7 +46,7 @@ base class BaseModalDialog extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(child: _buildTitle(context)),
+                Expanded(child: _DialogTitle(title: title)),
                 if (!isDismissible)
                   IconButton(
                     icon: Icon(Icons.close, size: DsSize.iconSize24),
@@ -57,52 +59,90 @@ base class BaseModalDialog extends StatelessWidget {
             ),
             SizedBox(height: DsSpacing.verticalSpace16),
             if (primaryIcon != null) ...[
-              Center(child: _buildPrimaryIcon(context)),
+              Center(
+                child: _DialogPrimaryIcon(
+                  icon: primaryIcon!,
+                  color: iconPrimaryColor ?? colors.iconPrimary,
+                ),
+              ),
               SizedBox(height: DsSpacing.verticalSpace24),
             ],
-            _buildDescription(context),
+            _DialogDescription(description: description),
             SizedBox(height: DsSpacing.verticalSpace32),
-            _buildActions(context),
+            _DialogActions(
+              primaryButtonText: primaryButtonText,
+              onPrimaryButtonPressed: onPrimaryButtonPressed,
+              secondaryButtonText: secondaryButtonText,
+              onSecondaryButtonPressed: onSecondaryButtonPressed,
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildTitle(BuildContext context) {
-    return switch (title) {
-      _DsDialogTitleText(:final data) => DsText.titleMedium(data),
-      _DsDialogTitleWidget(:final child) => child,
-    };
-  }
+}
 
-  Widget _buildDescription(BuildContext context) {
-    return switch (description) {
-      _DsDialogDescriptionText(:final data) => DsText.bodyMedium(
-        data,
-        color: context.dsColors.textSecondary,
-      ),
-      _DsDialogDescriptionWidget(:final child) => child,
-    };
-  }
+class _DialogTitle extends StatelessWidget {
+  const _DialogTitle({required this.title});
+  final DsDialogTitle title;
 
-  Widget _buildPrimaryIcon(BuildContext context) {
-    final color = context.dsColors.primary;
-    return switch (primaryIcon!) {
-      _DsDialogIconData(:final data) => Icon(
-        data,
-        size: DsSize.iconSize48,
-        color: color,
-      ),
-      _DsDialogIconAsset(:final path) => ImageIcon(
-        AssetImage(path),
-        size: DsSize.iconSize48,
-        color: color,
-      ),
-    };
-  }
+  @override
+  Widget build(BuildContext context) => switch (title) {
+        _DsDialogTitleText(:final data) => DsText.titleMedium(data),
+        _DsDialogTitleWidget(:final child) => child,
+      };
+}
 
-  Widget _buildActions(BuildContext context) {
+class _DialogDescription extends StatelessWidget {
+  const _DialogDescription({required this.description});
+  final DsDialogDescription description;
+
+  @override
+  Widget build(BuildContext context) => switch (description) {
+        _DsDialogDescriptionText(:final data) => DsText.bodyMedium(
+              data,
+              color: context.dsColors.textSecondary,
+            ),
+        _DsDialogDescriptionWidget(:final child) => child,
+      };
+}
+
+class _DialogPrimaryIcon extends StatelessWidget {
+  const _DialogPrimaryIcon({required this.icon, required this.color});
+  final DsDialogIcon icon;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) => switch (icon) {
+        _DsDialogIconData(:final data) => Icon(
+              data,
+              size: DsSize.iconSize48,
+              color: color,
+            ),
+        _DsDialogIconAsset(:final path) => ImageIcon(
+              AssetImage(path),
+              size: DsSize.iconSize48,
+              color: color,
+            ),
+      };
+}
+
+class _DialogActions extends StatelessWidget {
+  const _DialogActions({
+    this.primaryButtonText,
+    this.onPrimaryButtonPressed,
+    this.secondaryButtonText,
+    this.onSecondaryButtonPressed,
+  });
+
+  final String? primaryButtonText;
+  final VoidCallback? onPrimaryButtonPressed;
+  final String? secondaryButtonText;
+  final VoidCallback? onSecondaryButtonPressed;
+
+  @override
+  Widget build(BuildContext context) {
     final hasPrimary = primaryButtonText != null;
     final hasSecondary = secondaryButtonText != null;
 
@@ -114,8 +154,7 @@ base class BaseModalDialog extends StatelessWidget {
         if (hasSecondary)
           DsButton.secondary(
             secondaryButtonText!,
-            onTap:
-                onSecondaryButtonPressed ?? () => Navigator.of(context).pop(),
+            onTap: onSecondaryButtonPressed ?? () => Navigator.of(context).pop(),
           ),
         if (hasPrimary)
           DsButton.primary(primaryButtonText!, onTap: onPrimaryButtonPressed),

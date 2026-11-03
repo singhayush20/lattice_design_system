@@ -50,9 +50,9 @@ base class BaseListTile extends StatelessWidget {
       trailing: variant == DsListTileVariant.navigable
           ? trailingWidget ?? Icon(Icons.chevron_right, color: iconColor)
           : trailingWidget,
-      title: title != null ? title!.build(context, titleColor) : null,
+      title: title?.build(context, titleColor),
       subtitle:
-          subtitle != null ? subtitle!.build(context, subtitleColor) : null,
+          subtitle?.build(context, subtitleColor),
       enabled: isEnabled,
       contentPadding: EdgeInsets.symmetric(
         horizontal: DsSpacing.horizontalSpace16,
